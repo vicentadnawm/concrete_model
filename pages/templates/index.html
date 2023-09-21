@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href={% static 'css/bootstrap-4.4.1.css' %} rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static  'app/web.css' %}"></link>
+<link rel="stylesheet" type="text/css" href="{% static 'app/anims.css' %}"></link>
+	<link href={% static 'css/web.css' %} rel="stylesheet">
+	<link rel="icon" type="image/svg"  href={% static '/imgs/360.png' %} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    
+    <title>Concrete Strength Estimator</title>
+</head>
+<body style="background: url('{%static "imgs/bg.jpg"%}')">
+   
+   <div class="container-fluid content_wrapper">
+    
+    
+  <div class="container">
+    <form method="POST" action="{% url 'home' %}" class="container form">
+	{% csrf_token %}
+    <span class="text-primary h3 w-100 text-white">Concrete Strength Estimator</span>
+    <span class="text-light">This is web app using a machine learning model to estimate the strength of concrete.
+        The model was trained on data from Kaggle:<a target="_blank" href="https://www.kaggle.com/datasets/prathamtripathi/regression-with-neural-networking">click for link to data</a>
+    </span>
+    <span>Enter parameters</span>
+    <span class="param">
+    
+       
+                      
+    <div>Cement(kg in a m<sup>3</sup> mixture)<input name="cement"   value="{%if default != None%}{{default.cement}}{%else%}0{%endif%}" placeholder="e.g. 540 for 540kg" data-toggle="tooltip" data-placement="bottom" title="e.g. 540 for 540kg"> </input></div>
+    <div>Blast Furnace Slag(kg in a m<sup>3</sup> mixture)<input name="blast_furnace_slag"   value="{%if default != None%}{{default.blast_furnace_slag}}{%else%}0{%endif%}" placeholder="e.g. 95 for 95kg" data-toggle="tooltip" data-placement="bottom" title="e.g. 95 for 95kg"> </input></div>
+    <div>Fly Ash(kg in a m<sup>3</sup> mixture)<input name="fly_ash"   value="{%if default != None%}{{default.fly_ash}}{%else%}0{%endif%}" placeholder="e.g. 180 for 180kg" data-toggle="tooltip" data-placement="bottom" title="e.g. 180 for 180kg"> </input></div>
+    <div>Water(kg in a m<sup>3</sup> mixture)<input name="water"   value="{%if default != None%}{{default.water}}{%else%}0{%endif%}" placeholder="e.g. 162 for 162kg" data-toggle="tooltip" data-placement="bottom" title="e.g. 162 for 162kg"> </input></div>
+    <div>Superplasticizer(kg in a m<sup>3</sup> mixture)<input name="superplasticizer"   value="{%if default != None%}{{default.superplasticizer}}{%else%}0{%endif%}" placeholder="e.g. 2.5 for 2.5kg" data-toggle="tooltip" data-placement="bottom" title="e.g. 2.5 for 2.5kg"> </input></div>
+    <div>Coarse Aggregate(kg in a m<sup>3</sup> mixture)<input name="coarse_aggregate" type="" value="{%if default != None%}{{default.coarse_aggregate}}{%else%}0{%endif%}" placeholder="e.g. 1040 for 1040kg" data-toggle="tooltip" data-placement="bottom" title="e.g. 1040 for 1040kg"> </input></div>
+    <div>Fine Aggregate(kg in a m<sup>3</sup> mixture)<input name="fine_aggregate"   value="{%if default != None%}{{default.fine_aggregate}}{%else%}0{%endif%}" placeholder="e.g. 676 for 676kg" data-toggle="tooltip" data-placement="bottom" title="e.g. 676 for 676kg"> </input></div>
+    <div>Age(kg in a m<sup>3</sup> mixture)<input name="age"   value="{%if default != None%}{{default.age}}{%else%}0{%endif%}"placeholder="e.g. 28 for 28 days" data-toggle="tooltip" data-placement="bottom" title="e.g. 28 for 28 days"> </input></div>
+                       
+                        
+                   
+                          
+                 
+                        
+    </span>
+    <br>
+    <button class="m-1 btn btn-sm btn-primary" type="submit">Estimate</button>
+    {%if data != None %}
+    <br>
+    <span class="text-light bold" >Estimated stength is <span class="bold">{{data}}MPA</span></span>
+    <br>
+    {%endif%}
+
+    <span class="text-center w-100">Created by Mwanda Vicent</span>
+    </form>
+        
+
+  </div>
+   
+ 
+  
+</div>
+  
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script> 
+    <script src="{% static 'js/popper.min.js' %}""></script> 
+    <script src="{% static 'js/bootstrap-4.4.1.js' %}"></script>
+    <script type="text/javascript">
+        $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+    </script>
+</body>
+
+</html>

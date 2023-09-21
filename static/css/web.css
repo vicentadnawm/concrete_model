@@ -1,0 +1,38 @@
+:root{
+  --main:rgb(14, 163, 238);
+  --sub_main:rgb(24, 121, 170);
+  --dark:rgb(107, 105, 105);
+  --light:rgb(103, 197, 248);
+  --light-dark:#ddd;
+  
+}
+body{
+font-family: "Montserrat",sans-serif;
+min-height: 100vh!important;
+display: flex;
+flex-direction: column;
+overflow-x: hidden!important;
+background: var(--light-dark);
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  background:#aaaaaa85;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+.form *{
+  width: 100%!important;
+}
+.param {
+  display: grid;
+grid-template-columns:  auto auto auto;
+flex-wrap: wrap;
+gap:20px;
+width: 100%;
+}
+.price{
+
+}
